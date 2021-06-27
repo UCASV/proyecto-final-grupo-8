@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace IP
+{
+    public partial class Appointment
+    {
+        public Appointment()
+        {
+            Employeexappos = new HashSet<Employeexappo>();
+            Vaccinations = new HashSet<Vaccination>();
+        }
+
+        public int IdApo { get; set; }
+        public int? DuiCitizen { get; set; }
+        public int? Disease { get; set; }
+        public int? TypeDose { get; set; }
+
+        public virtual Disease DiseaseNavigation { get; set; }
+        public virtual Citizen DuiCitizenNavigation { get; set; }
+        public virtual ICollection<Employeexappo> Employeexappos { get; set; }
+        public virtual ICollection<Vaccination> Vaccinations { get; set; }
+    }
+}
